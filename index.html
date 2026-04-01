@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certus Engine — Governança e Transparência para IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #f9fafb;
+            --glass: rgba(17, 24, 39, 0.7);
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--text);
+        }
+        .hero {
+            padding: 10rem 0;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+        }
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.5);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 5rem 0;
+        }
+        .feature-card {
+            background: var(--glass);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s;
+        }
+        .feature-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        footer {
+            padding: 5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Certus Engine</div>
+            <nav>
+                <a href="#features">Tecnologia</a>
+                <a href="pricing.html">Preços</a>
+                <a href="contact.html">Contato</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>O Cérebro Pensante <br><span class="gradient-text">para IAs Governadas</span></h1>
+            <p>Transforme qualquer IA em enterprise-ready com governança Tier A+, privacidade verificável e auditoria imutável.</p>
+            <a href="contact.html" class="btn btn-primary">Começar Trial de 30 Dias</a>
+        </section>
+
+        <section id="features" class="features">
+            <div class="feature-card">
+                <h3>🛡️ Governança Tier A+</h3>
+                <p>Validação estrutural, PII-Zero scan e auditoria SHA256 em todas as interações.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔬 ZK-Midnight Proofs</h3>
+                <p>Prove legitimidade sem revelar segredos. Circuitos Zero-Knowledge verificam licenças e hardware.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🕵️ PII-Zero Enforcement</h3>
+                <p>Scan bidirecional automático. CPF, email e dados sensíveis nunca vazam para o provedor.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Educatech AI. Todos os direitos reservados. <br> Documentação técnica disponível sob NDA.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato — Certus Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #f9fafb;
+            --glass: rgba(17, 24, 39, 0.7);
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .contact-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+        .contact-card {
+            background: var(--glass);
+            padding: 4rem 2rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .email {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: block;
+            margin: 2rem 0;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        .cta-list {
+            text-align: left;
+            max-width: 400px;
+            margin: 3rem auto;
+            color: #cbd5e1;
+        }
+        .cta-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .cta-list li::before {
+            content: "→";
+            margin-right: 0.75rem;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">Certus Engine</a>
+        </header>
+
+        <section class="contact-section">
+            <h1>Fale Conosco</h1>
+            <div class="contact-card">
+                <p>Nossa equipe técnica e comercial está à disposição para acelerar sua jornada Tier A+.</p>
+                <a href="mailto:enterprise@certus.engine" class="email">enterprise@certus.engine</a>
+                <p>Para suporte técnico: <strong>support@certus.engine</strong></p>
+                <ul class="cta-list">
+                    <li>Início de Trial (30 dias)</li>
+                    <li>Agendamento de Demo Enterprise</li>
+                    <li>Solicitação de Documentação (NDA)</li>
+                    <li>Parcerias Estratégicas</li>
+                </ul>
+                <p style="font-size: 0.9rem;">Resposta média em < 2 horas comerciais.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

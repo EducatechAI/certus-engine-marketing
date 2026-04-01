@@ -1,0 +1,12 @@
+# Certus Engine — Public Marketing Gitignore
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+.next/
+node_modules/
+build/
+dist/
+*.tmp
+temp/

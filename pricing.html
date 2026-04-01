@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preços — Certus Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #f9fafb;
+            --glass: rgba(17, 24, 39, 0.7);
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .pricing-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .pricing-card {
+            background: var(--glass);
+            padding: 3rem 2rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+        .pricing-card h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #94a3b8;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 1.5rem 0;
+        }
+        .price span {
+            font-size: 1rem;
+            color: #64748b;
+        }
+        .features-list {
+            margin: 2rem 0;
+            padding: 0;
+            list-style: none;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .features-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        .features-list li::before {
+            content: "✓";
+            margin-right: 0.75rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .btn {
+            display: block;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">Certus Engine</a>
+        </header>
+
+        <section class="pricing-section">
+            <h1>Escolha seu Plano de Governança</h1>
+            <div class="pricing-grid">
+                <!-- Developer -->
+                <div class="pricing-card">
+                    <h2>Developer</h2>
+                    <div class="price">Free</div>
+                    <ul class="features-list">
+                        <li>1.000 requests/mês</li>
+                        <li>Governança Tier A+ Sandbox</li>
+                        <li>Acesso básico à API</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Começar Grátis</a>
+                </div>
+
+                <!-- Starter -->
+                <div class="pricing-card">
+                    <h2>Starter</h2>
+                    <div class="price">R$ 59<span>/mês</span></div>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">ou $15/mês Global</p>
+                    <ul class="features-list">
+                        <li>10.000 requests/mês</li>
+                        <li>PII-Zero Enforcement</li>
+                        <li>Price-lock por 12 meses</li>
+                        <li>ZK-Midnight Ready</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Assinar Agora</a>
+                </div>
+
+                <!-- Professional -->
+                <div class="pricing-card">
+                    <h2>Professional</h2>
+                    <div class="price">R$ 499<span>/mês</span></div>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">ou $149/mês Global</p>
+                    <ul class="features-list">
+                        <li>100.000 requests/mês</li>
+                        <li>Dashboard de Auditoria</li>
+                        <li>Circuit Breaker customizados</li>
+                        <li>Suporte prioritário</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Selecionar</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <h2>Enterprise</h2>
+                    <div class="price">Custom</div>
+                    <ul class="features-list">
+                        <li>Requests ilimitados</li>
+                        <li>Deploy on-premise</li>
+                        <li>Full Compliance RR1</li>
+                        <li>Documentação Completa sob NDA</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Falar com Vendas</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
