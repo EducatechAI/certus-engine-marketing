@@ -44,6 +44,70 @@
             transition: transform 0.3s ease;
         }
 
+        /* Estilos do Chat Bubble Callout Retrátil */
+        #certus-bubble-callout {
+            position: fixed;
+            bottom: 105px;
+            right: 30px;
+            width: 260px;
+            background: var(--certus-dark-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--certus-border);
+            border-radius: 18px;
+            padding: 12px 35px 12px 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4), 0 0 15px var(--certus-emerald-glow);
+            z-index: 9997;
+            font-size: 0.8rem;
+            color: var(--certus-text);
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(10px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        #certus-bubble-callout.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        #certus-bubble-callout::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            right: 22px;
+            border-width: 8px 8px 0;
+            border-style: solid;
+            border-color: rgba(10, 15, 30, 0.85) transparent;
+            display: block;
+            width: 0;
+        }
+
+        #certus-bubble-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: none;
+            color: var(--certus-text-muted);
+            font-size: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        #certus-bubble-close:hover {
+            background: rgba(255,255,255,0.15);
+            color: var(--certus-text);
+        }
+
         #certus-chat-window {
             position: fixed;
             bottom: 110px;
@@ -222,6 +286,10 @@
     // Estruturação do HTML do widget
     const widgetContainer = document.createElement('div');
     widgetContainer.innerHTML = `
+        <div id="certus-bubble-callout">
+            <button id="certus-bubble-close" title="Fechar">×</button>
+            <span id="certus-bubble-text">Dúvidas sobre contratação via CPSI (Lei 182/2021) ou IDE Sovereign? Pergunte-me!</span>
+        </div>
         <div id="certus-chat-trigger" title="Falar com o Certus Engine">
             <svg viewBox="0 0 24 24">
                 <path d="M12 2C6.477 2 2 6.13 2 11.23c0 2.92 1.47 5.54 3.78 7.26l-.88 3.51a.75.75 0 0 0 1.1.84l4.08-2.28A9.85 9.85 0 0 0 12 20.46c5.523 0 10-4.13 10-9.23S17.523 2 12 2zm0 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1.25-4.25a1.25 1.25 0 0 1-2.5 0v-2.5a1.25 1.25 0 0 1 2.5 0v2.5z"/>
@@ -260,6 +328,9 @@
     const inputEl = document.getElementById('certus-message-input');
     const sendBtn = document.getElementById('certus-send-btn');
     const messagesContainer = document.getElementById('certus-messages-container');
+    const bubbleCallout = document.getElementById('certus-bubble-callout');
+    const bubbleClose = document.getElementById('certus-bubble-close');
+    const bubbleText = document.getElementById('certus-bubble-text');
 
     // Estado do Chat
     let chatActive = false;
@@ -268,6 +339,46 @@
     trigger.addEventListener('click', () => {
         chatActive = !chatActive;
         windowEl.classList.toggle('active', chatActive);
+        
+        // Oculta o callout definitivamente quando o chat é aberto
+        if (chatActive) {
+            bubbleCallout.classList.remove('active');
+        }
+    });
+
+    // Lógica do Bubble Callout (Notificação de Engajamento)
+    const bubbleMessages = [
+        "Dúvidas sobre contratação via CPSI (Lei 182/2021) ou IDE Sovereign? Pergunte-me!",
+        "Descubra como o agente Lazarus protege e torna o código 'imortal'.",
+        "Teste a IDE Sovereign ou Command grátis por 30 dias!"
+    ];
+    let currentBubbleIndex = 0;
+
+    // Exibe o Callout após 5 segundos do carregamento da página
+    setTimeout(() => {
+        if (!chatActive) {
+            bubbleCallout.classList.add('active');
+        }
+    }, 5000);
+
+    // Rotaciona mensagens do callout a cada 10 segundos
+    setInterval(() => {
+        if (bubbleCallout.classList.contains('active') && !chatActive) {
+            bubbleCallout.classList.remove('active');
+            setTimeout(() => {
+                currentBubbleIndex = (currentBubbleIndex + 1) % bubbleMessages.length;
+                bubbleText.textContent = bubbleMessages[currentBubbleIndex];
+                if (!chatActive) {
+                    bubbleCallout.classList.add('active');
+                }
+            }, 600); // tempo para transição de opacidade
+        }
+    }, 12000);
+
+    // Fechar manualmente o Callout
+    bubbleClose.addEventListener('click', (e) => {
+        e.stopPropagation(); // impede abrir o chat
+        bubbleCallout.classList.remove('active');
     });
 
     // Lógica Comercial & Fallbacks
