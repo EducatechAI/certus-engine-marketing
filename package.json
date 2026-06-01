@@ -1,0 +1,16 @@
+{
+  "name": "certus-engine-marketing",
+  "version": "1.0.0",
+  "description": "Certus Engine Institutional Marketing Website and Conversational Sovereign Agent API",
+  "main": "api/chat.js",
+  "scripts": {
+    "start": "node api/chat.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
